@@ -1,5 +1,6 @@
+import mongoose, {Schema, model, models, mongo} from "mongoose";
 import bcrypt from "bcryptjs";
-import mongoose, { Schema, model, models } from "mongoose";
+import { scheduler } from "timers/promises";
 
 export interface Iuser{
 
@@ -30,3 +31,5 @@ userSchema.pre('save',async function(next){
 })
 
 const User = models?.User || model<Iuser>("User",userSchema)
+
+export default User
